@@ -9,15 +9,19 @@ package modelo;
  * @author adria
  */
 public class PizzaNodo extends Pizza {
+    private String idPizza;
     private PizzaNodo sig;
 
     public PizzaNodo() {
         this.sig=null;
+        this.idPizza="";
     }
-
-    public PizzaNodo(String sabor, String tamaño, int cantidad, String estado) {
+    
+    public PizzaNodo(String idPizza,String sabor, String tamaño, int cantidad, String estado) {
         super(sabor, tamaño, cantidad, estado);
+        this.idPizza=idPizza;
     }
+    
 
     public PizzaNodo getSig() {
         return sig;
@@ -26,6 +30,16 @@ public class PizzaNodo extends Pizza {
     public void setSig(PizzaNodo sig) {
         this.sig = sig;
     }
+
+    public String getIdPizza() {
+        return idPizza;
+    }
+
+    public void setIdPizza(String idPizza) {
+        this.idPizza = idPizza;
+    }
+    
+    
       
     
 }
