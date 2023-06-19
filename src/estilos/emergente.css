@@ -1,0 +1,60 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 19/06/2023, 9:32:46 a. m.
+    Author     : adria
+*/
+.emergente{
+    -fx-background-image:  url("../img/emergente.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    /*-fx-background-radius: 15;*/
+}
+
+.btnNaranja{
+    -fx-background-color:#FD9A15 ;
+    -fx-padding: 10 30 10 30;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size:15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
+    -fx-background-radius: 7;
+}
+.btnNaranja:hover{
+    -fx-background-color:#F7B817 ;
+}
+
+.btnEliminar{
+    -fx-background-color:#B20000 ;
+    -fx-padding: 10 30 10 30;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size:15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
+    -fx-background-radius: 7;
+}
+.btnEliminar:hover{
+    -fx-background-color:#B23000 ;
+}
+.img{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
+}
+
+.labelContent{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size:25px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
+}
+
+.emer1{
+    -fx-background-image: url(../img/emer1.png);
+    -fx-background-size: cover;
+    -fx-background-position: left;
+}
+.contetitle{
+    -fx-background-color: linear-gradient(rgba(178, 0, 0,0.5),rgba(178,20,0,0));
+    /*-fx-background-color: linear-gradient(rgb(247, 150, 23),rgb(178, 0, 0)):*/
+}
