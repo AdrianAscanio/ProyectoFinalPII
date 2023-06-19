@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<TabPane id="tabp" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1000.0" styleClass="TabPane" stylesheets="@../estilos/tab.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="buonazza.VistaController">
+  <tabs>
+      <Tab id="tabicon" closable="false" disable="true" styleClass="tabN" text="">
+         <graphic>
+            <ImageView fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/buenazza.png" />
+               </image></ImageView>
+         </graphic>
+      </Tab>
+    <Tab styleClass="tabN" text="Menú">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" onMouseClicked="#OnActionHaw" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <HBox layoutY="273.0" prefHeight="270.0" prefWidth="700.0" styleClass="Menu" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="itemMenu">
+                           <children>
+                              <Label layoutX="56.0" layoutY="180.0" styleClass="labelMenu" text="Salmón" />
+                              <ImageView fitHeight="160.0" fitWidth="160.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="imagPizza">
+                                 <image>
+                                    <Image url="@../img/salmon.png" />
+                                 </image>
+                              </ImageView>
+                           </children></Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="itemMenu">
+                           <children>
+                              <Label layoutX="35.0" layoutY="180.0" styleClass="labelMenu" text="Tradicional" />
+                              <ImageView fitHeight="160.0" fitWidth="160.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="imagPizza">
+                                 <image>
+                                    <Image url="@../img/tradicional.png" />
+                                 </image>
+                              </ImageView>
+                           </children></Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="itemMenu">
+                           <children>
+                              <Label layoutX="69.0" layoutY="180.0" styleClass="labelMenu" text="Crear" />
+                              <ImageView fitHeight="160.0" fitWidth="160.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="imagPizza">
+                                 <image>
+                                    <Image url="@../img/crear.png" />
+                                 </image>
+                              </ImageView>
+                           </children></Pane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="270.0" prefWidth="700.0" styleClass="Menu">
+                     <children>
+                        <Pane id="btnHaw" fx:id="btnHaw" onMousePressed="#onActionhawaiana" prefHeight="200.0" prefWidth="197.0" styleClass="itemMenu">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <children>
+                              <Label layoutX="41.0" layoutY="180.0" styleClass="labelMenu" text="Hawaiana" />
+                              <ImageView cache="true" fitHeight="160.0" fitWidth="160.0" layoutX="19.0" layoutY="14.0" onMouseClicked="#OnActionHaw" pickOnBounds="true" preserveRatio="true" styleClass="imagPizza">
+                                 <image>
+                                    <Image url="@../img/hawaiana.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane onMousePressed="#onActionhawaiana" prefHeight="200.0" prefWidth="200.0" styleClass="itemMenu">
+                           <children>
+                              <Label layoutX="48.0" layoutY="187.0" styleClass="labelMenu" text="Mariscos" />
+                              <ImageView fitHeight="160.0" fitWidth="160.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="imagPizza">
+                                 <image>
+                                    <Image url="@../img/mariscos.png" />
+                                 </image>
+                              </ImageView>
+                           </children></Pane>
+                        <Pane id="tableOrden" prefHeight="200.0" prefWidth="200.0" styleClass="itemMenu">
+                           <children>
+                              <Label layoutX="63.0" layoutY="186.0" styleClass="labelMenu" text="Queso" />
+                              <ImageView fitHeight="160.0" fitWidth="160.0" layoutX="20.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" styleClass="imagPizza">
+                                 <image>
+                                    <Image url="@../img/quso.png" />
+                                 </image>
+                              </ImageView>
+                           </children></Pane>
+                     </children>
+                  </HBox>
+                  <Pane layoutX="786.0" layoutY="366.0" prefHeight="550.0" prefWidth="300.0" styleClass="barOrden" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <Label layoutX="104.0" layoutY="27.0" styleClass="labelTitulo" text="PEDIDO" />
+                        <Button layoutX="142.0" layoutY="485.0" mnemonicParsing="false" styleClass="btnNaranja" text="ORDENAR" />
+                        <Button layoutX="35.0" layoutY="485.0" mnemonicParsing="false" onAction="#popUp" styleClass="btnElim">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/eliminar.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <TableView layoutX="-1.0" layoutY="72.0" prefHeight="388.0" prefWidth="302.0">
+                          <columns>
+                            <TableColumn prefWidth="71.0" text="colum1" />
+                            <TableColumn prefWidth="132.0" text="column2" />
+                          </columns>
+                        </TableView>
+                     </children></Pane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab styleClass="tabN" text="Ordenes">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TabPane layoutX="246.0" layoutY="55.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0">
+                    <tabs>
+                      <Tab styleClass="tabN" text="Untitled Tab 1">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </Tab>
+                      <Tab styleClass="tabN" text="Untitled Tab 2">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab styleClass="tabN" text="Ventas">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Pagination id="pagVentas" layoutX="46.0" layoutY="63.0" pageCount="0" prefHeight="418.0" prefWidth="715.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="50.0" />
+               </children></AnchorPane>
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>
