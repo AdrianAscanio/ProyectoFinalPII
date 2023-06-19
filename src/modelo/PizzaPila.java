@@ -4,20 +4,19 @@
  */
 package modelo;
 
+import java.io.File;
+import java.util.Scanner;
+
 /**
  *
  * @author adria
  */
-public class PizzaPila extends Pizza {
+public class PizzaPila {
 
     private PizzaNodo cab;
     private int nPizzas;
 
     public PizzaPila() {
-    }
-
-    public PizzaPila(String sabor, String tamaño, int cantidad, String estado) {
-        super(sabor, tamaño, cantidad, estado);
     }
 
     public PizzaNodo getCab() {
@@ -36,7 +35,7 @@ public class PizzaPila extends Pizza {
         this.nPizzas = nPizzas;
     }
 
-    public boolean pilaVacia() {
+    public boolean isVacia() {
         if (this.nPizzas == 0) {
             return true;
         } else {
@@ -44,16 +43,98 @@ public class PizzaPila extends Pizza {
         }
     }
 
-    public void addPizza(String Id,String sabor, String tamaño, int cantidad, String estado) {
-        PizzaNodo n = new PizzaNodo(Id,sabor.toUpperCase(), tamaño.toUpperCase(), cantidad, estado.toLowerCase());
-        if (this.pilaVacia() == true) {
+    public void addPizza(String Id, String sabor, String tamaño, int cantidad, String estado) {
+        PizzaNodo n = new PizzaNodo(Id, sabor.toUpperCase(), tamaño.toUpperCase(), cantidad, estado.toLowerCase());
+        if (this.isVacia() == true) {
             this.setCab(n);
+            this.nPizzas++;
         } else {
             PizzaNodo temp = this.getCab();
             n.setSig(temp);
             this.setCab(n);
+            this.nPizzas++;
+        }
+    }
+
+    public PizzaNodo BuscarId(String id) {
+
+        if (this.nPizzas != 0) {
+            PizzaNodo aux = this.cab;
+            while (aux.getSig() != null) {
+                if (aux.getIdPizza().equals(id)) {
+                    return aux;
+                }
+                aux = aux.getSig();
+            }
+            if (aux.getIdPizza().equals(id)) {
+                return aux;
+            }
+        }
+        return null;
+    }
+
+    public PizzaNodo ultimo() {
+        PizzaNodo aux = this.cab;
+        if (this.nPizzas != 0) {
+            while (aux.getSig() != null) {
+                aux = aux.getSig();
+            }
+        }
+        return aux;
+    }
+
+    public PizzaNodo BuscarIdAnt(String id) {
+
+        if (this.nPizzas != 0) {
+            PizzaNodo aux = this.cab;
+            PizzaNodo ant = null;
+            while (aux.getSig() != null) {
+
+                if (aux.getIdPizza().equals(id)) {
+                    return ant;
+                }
+                ant = aux;
+                aux = aux.getSig();
+            }
+            if (aux.getIdPizza().equals(id)) {
+                return ant;
+            }
+
+        }
+        return null;
+    }
+
+    public void quitarTope() {
+        if (this.nPizzas != 0) {
+            PizzaNodo temp = this.cab;
+            this.cab = temp.getSig();
+            temp = null;
+            this.nPizzas--;
+        }
+    }
+
+    public void Elimiar(String id) {
+        if (this.BuscarId(id).getIdPizza().equals(this.cab.getIdPizza())) {
+            this.quitarTope();
+            this.nPizzas--;
+        } else {
+            this.BuscarIdAnt(id).setSig(this.BuscarId(id).getSig());
+            this.nPizzas--;
+        }
+    }
+
+    public void Lista() {
+        if (this.nPizzas != 0) {
+            PizzaNodo aux = this.cab;
+            while (aux.getSig() != null) {
+                System.out.println(aux.getIdPizza());
+                aux = aux.getSig();
+
+            }
+            System.out.println(aux.getIdPizza());
         }
     }
     
+
 
 }
