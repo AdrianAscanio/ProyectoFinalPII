@@ -1,0 +1,167 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 18/06/2023, 10:04:05 a. m.
+    Author     : adria
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;800&display=swap');
+
+.TabPane{
+    /*-fx-background-image: url("fondo.png") ;*/
+    -fx-background-position: center;
+    -fx-background-size:cover; 
+    -fx-background-image: url("../img/fondo_buonazza.png");
+
+
+    
+}
+/*#tabicon{
+    -fx-background-image: url("buenazza.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-shadow:solid 1 black;
+    
+}*/
+#tabicon{
+    -fx-background-color: none;
+}
+/*#tabicon:disabled{
+    -fx-background:none;
+}*/
+#tabicon:hover{
+    -fx-background-color: none;
+}
+.tabimagen{
+    -fx-background-color: blue;
+}
+.tabN .tab-label{
+    -fx-background-color: transparent;
+    -fx-alignment: CENTER;
+    -fx-text-fill: white;
+}
+.tabN .tab-label:focus{
+    -fx-border-color: none;
+}
+.tabnull:hover{
+    -fx-background-color: none;
+}
+.tabN {
+    -fx-transition: 0.5s ease-in-out;
+    -fx-background-color: none;
+    -fx-font-size:20 px;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    /*-fx-border-radius: 0;*/
+    -fx-padding :20 30 20 30;
+    -fx-size: 50px;
+        /*-fx-text-fill:  #FFFFFF;*/
+
+    
+    /*-fx-fill: 20px;*/
+}
+
+.tabN:selected{
+    -fx-background-color: #970000;
+    -fx-focus-color:none;
+    -fx-border-color: none;
+    
+}
+
+.column-header-background{
+    -fx-background-color: #E6E6E6;
+}
+.column-header{
+    -fx-background-color: transparent;
+}
+.placeholder{
+    -fx-background-color: #E6E6E6;
+}
+.filler{
+      -fx-background-color: #E6E6E6;
+}
+/*.TabPane .tab-header-background{
+    -fx-background-color: #B20000;
+    -fx-background-color: none;
+    -fx-background-color: linear-gradient(to left,rgb(178, 0, 0),rgb(178,20,0));
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}*/
+#tabp .tab-header-background{
+    /*-fx-background-color: #B20000;*/
+    /*-fx-background-color: none;*/
+    -fx-background-color: linear-gradient(to left,rgb(178, 0, 0),rgb(178,20,0));
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+.tabN:disabled{
+    -fx-opacity: 1;
+}
+.tabN:hover{
+    -fx-background-color: #970000;
+}
+
+.Menu{
+/*    -fx-background-color: blue;*/
+    -fx-spacing : 20 ;
+    -fx-padding: 20;
+
+}
+.labelMenu{
+        -fx-font-size:25px;
+        -fx-text-fill: #353535;
+        -fx-font-weight: bold;
+}
+.itemMenu{
+    -fx-alignment: CENTER;
+    -fx-background-color: #E6E6E6;
+    -fx-background-radius: 20px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
+
+}
+.itemMenu:hover{
+    -fx-background-color: white;
+    
+}
+/*.itemMenu:hover ~ .imagPizza{
+    
+}*/
+
+.imagPizza{
+     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
+}
+
+.barOrden{
+    -fx-background-color: #E6E6E6;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
+}
+
+.btnNaranja{
+    -fx-background-color:#4DBB3B ;
+    -fx-padding: 10 30 10 30;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size:15px;
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);*/
+    -fx-background-radius: 7;
+}
+.btnNaranja:hover{
+    -fx-background-color:#F7B817 ;
+}
+.btnElim{
+    -fx-background-color: #F42727;
+    -fx-padding: 10 14 10 14;
+      -fx-background-radius: 7;
+}
+.btnElim:hover{
+    -fx-background-color: #AE1919;
+}
+.labelTitulo{
+    -fx-font-size:25px;
+    -fx-text-fill: #5A5A56;
+    -fx-font-weight: bold;
+}
+
+.emergente{
+    -fx-background-color: red;
+}
