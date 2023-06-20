@@ -10,6 +10,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-image:  url("../img/emergente.png");
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
+    -fx-spacing: 20;
     /*-fx-background-radius: 15;*/
 }
 
@@ -48,6 +49,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-font-size:25px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
 }
+labelC{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size:15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
+}
 
 .emer1{
     -fx-background-image: url(../img/emer1.png);
@@ -57,4 +64,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .contetitle{
     -fx-background-color: linear-gradient(rgba(178, 0, 0,0.5),rgba(178,20,0,0));
     /*-fx-background-color: linear-gradient(rgb(247, 150, 23),rgb(178, 0, 0)):*/
+}
+
+.btnToglee{
+    -fx-background-color: #E6E6E6;
+    -fx-background-radius: 10;
+    -fx-padding: 10 40 10 20;
+    -fx-text-fill: #1E1E1E;
+    -fx-font-weight: bold;
+    -fx-font-size:25px;
+}
+
+.btnElim{
+    -fx-background-color: #F42727;
+    -fx-padding: 10 14 10 14;
+      -fx-background-radius: 7;
+      -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
+}
+.btnElim:hover{
+    -fx-background-color: #AE1919;
 }
