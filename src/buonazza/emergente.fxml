@@ -14,7 +14,7 @@
          </image>
       </ImageView>
       <Button layoutX="289.0" layoutY="222.0" mnemonicParsing="false" styleClass="btnEliminar" text="ELIMINAR" />
-      <Button fx:id="btnClose" layoutX="96.0" layoutY="222.0" mnemonicParsing="false" styleClass="btnNaranja" text="CANCELAR" />
-      <Label fx:id="titulo" layoutX="102.0" layoutY="132.0" styleClass="labelContent" text="¿Quieres elimar la orden?" />
+      <Button fx:id="btnClose" layoutX="96.0" layoutY="222.0" mnemonicParsing="false" onAction="#closeVentana" styleClass="btnNaranja" text="CANCELAR" />
+      <Label id="titulo" fx:id="titulo" layoutX="102.0" layoutY="132.0" styleClass="labelContent" text="¿Quieres elimar la orden?" />
    </children>
 </AnchorPane>
