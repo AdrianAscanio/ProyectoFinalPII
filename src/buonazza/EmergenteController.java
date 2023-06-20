@@ -26,30 +26,45 @@ public class EmergenteController implements Initializable {
     /**
      * Initializes the controller class.
      */
-//    @FXML
-//    public Stage stageEme;
     @FXML
-    private Button bntOk;
+    public Stage stageEme=new Stage();
     @FXML
-     private Button btnClose;
+    public Button bntOk;
+    @FXML
+    public Button btnClose;
     @FXML
     private Label titulo;
     
+    Scene canva;
     
     public void popEmer() throws IOException{
 //        titulo.setText("estoy modificando");
-        Pane pane=new Pane();
+//        Pane pane=new Pane();
         
-        Stage stageEme=new Stage();
+//        Stage stageEme=new Stage();
         Parent h = FXMLLoader.load(getClass().getResource("emergente.fxml"));
-        Scene canva = new Scene(h);
+        canva = new Scene(h);
         stageEme.setScene(canva);
         stageEme.showAndWait();
+//        btnClose.setOnAction(e->{
+//            stageEme.close();
+//        });
 
     }
-    public void closeVentana(Stage res){
-        res.close();
+    public void closeVentana() throws Throwable{
+
+            Stage res= (Stage) this.btnClose.getScene().getWindow();
+            res.close();
     }
+
+    public EmergenteController() {
+    }
+
+    public EmergenteController(String titulo) {
+        this.titulo.setText(titulo);
+    }
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
