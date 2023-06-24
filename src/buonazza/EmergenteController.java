@@ -44,6 +44,7 @@ public class EmergenteController implements Initializable {
 //        Stage stageEme=new Stage();
         Parent h = FXMLLoader.load(getClass().getResource("emergente.fxml"));
         canva = new Scene(h);
+        
         stageEme.setScene(canva);
         stageEme.showAndWait();
 //        btnClose.setOnAction(e->{

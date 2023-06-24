@@ -56,6 +56,6 @@
          </graphic>
       </Button>
       <Button layoutX="288.0" layoutY="430.0" mnemonicParsing="false" styleClass="btnNaranja" text="AGREGAR" />
-      <Label layoutX="51.0" layoutY="367.0" text="CANTIDAD" />
+      <Label layoutX="51.0" layoutY="367.0" styleClass="labelContent" text="CANTIDAD" />
    </children>
 </AnchorPane>

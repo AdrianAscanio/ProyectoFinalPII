@@ -73,6 +73,13 @@ labelC{
     -fx-text-fill: #1E1E1E;
     -fx-font-weight: bold;
     -fx-font-size:25px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
+}
+.btnToglee:hover{
+    -fx-background-color: #ffffff;
+}
+.btnToglee:selected{
+    -fx-background-color: #00ffcc;
 }
 
 .btnElim{
