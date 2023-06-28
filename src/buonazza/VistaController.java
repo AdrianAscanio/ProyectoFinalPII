@@ -28,7 +28,7 @@ import modelo.PizzaNodo;
  *
  * @author adria
  */
-public class VistaController implements Initializable {
+public class VistaController  {
     PizzaLista ventas=new PizzaLista();
     /**
      * Initializes the controller class.
@@ -49,12 +49,27 @@ public class VistaController implements Initializable {
     @FXML
     public void onActionhawaiana() throws IOException{
         PopMenuController res = new PopMenuController();
-        res.popUp();
-//        System.out.println("precionaste el btn hawaiana");
-//        Alert ax=new Alert(Alert.AlertType.CONFIRMATION);
-////        ax.setDialogPane(dp);
-//        ax.show();
+        res.popUp("Hawaiana");
     }
+    
+    
+    public void onActionMariscos() throws IOException{
+        PopMenuController res = new PopMenuController();
+        res.popUp("Mariscos","btn","btn","btn");
+    }
+    public void onActionQueso() throws IOException{
+        PopMenuController res = new PopMenuController();
+        res.popUp("Queso");
+    }
+    public void onActionSalmon() throws IOException{
+        PopMenuController res = new PopMenuController();
+        res.popUp("Salmón");
+    }
+    public void onActionTradicional() throws IOException{
+        PopMenuController res = new PopMenuController();
+        res.popUp("Tradicional");
+    }
+    
     public void initTableVentas(){
         tableVentas.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         
@@ -70,6 +85,7 @@ public class VistaController implements Initializable {
         col5.setCellValueFactory(new PropertyValueFactory<>("estado"));
         this.tableVentas.getColumns().addAll(col1,col2,col3,col4,col5);
     }
+    
     public void actualizarVentas(){
         ventas.leerVentas();
         if (ventas.getnPizzas() != 0) {
@@ -90,23 +106,17 @@ public class VistaController implements Initializable {
         }
     
     }
+    
     public void popUp() throws IOException{
         EmergenteController emer=new EmergenteController();
-        emer.popEmer();
+
+        emer.popEmer("¿Deseas Cancelar La orden?");
         emer.btnClose.setOnAction(e->{
             emer.stageEme.close();
         });
-//        emer.btnClose.setOnAction(e->{
-//            emer.stage.close();
-//        });
-//        Stage stage=new Stage();
-//        Parent h = FXMLLoader.load(getClass().getResource("emergente.fxml"));
-//        Scene canva = new Scene(h);
-//        stage.setScene(canva);
-//        stage.showAndWait();
-//        this.AgregarColumn();
+
     }
-    
+   
     public void addPizza(){
         PizzaNodo N=new PizzaNodo("xxxx","HAWAIANA","MINI",1,"ORDENADO");
         this.tableOrden.getItems().add(N);
@@ -126,9 +136,10 @@ public class VistaController implements Initializable {
     public void OnActionHaw(){
 
     }
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-            System.out.println("hola");
+
+    public void initialize() {
+        
+//            System.out.println("hola");s
 //            TableColumn<String, String> col1 = new TableColumn<>("id");
 //        col1.setCellValueFactory(new PropertyValueFactory<>("id"));
 //        tableOrden.getColumns().addAll(col1);
@@ -139,6 +150,7 @@ public class VistaController implements Initializable {
 //        tableOrden.getItems().add();
         
     }
+    
     
     
     

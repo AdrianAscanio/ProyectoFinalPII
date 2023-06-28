@@ -29,7 +29,7 @@
                <children>
                   <HBox layoutY="273.0" prefHeight="270.0" prefWidth="700.0" styleClass="Menu" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
                      <children>
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="itemMenu">
+                        <Pane onMousePressed="#onActionSalmon" prefHeight="200.0" prefWidth="200.0" styleClass="itemMenu">
                            <children>
                               <Label layoutX="56.0" layoutY="180.0" styleClass="labelMenu" text="Salmón" />
                               <ImageView fitHeight="160.0" fitWidth="160.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="imagPizza">
@@ -38,7 +38,7 @@
                                  </image>
                               </ImageView>
                            </children></Pane>
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="itemMenu">
+                        <Pane onMousePressed="#onActionTradicional" prefHeight="200.0" prefWidth="200.0" styleClass="itemMenu">
                            <children>
                               <Label layoutX="35.0" layoutY="180.0" styleClass="labelMenu" text="Tradicional" />
                               <ImageView fitHeight="160.0" fitWidth="160.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="imagPizza">
@@ -73,7 +73,7 @@
                               </ImageView>
                            </children>
                         </Pane>
-                        <Pane onMousePressed="#onActionhawaiana" prefHeight="200.0" prefWidth="200.0" styleClass="itemMenu">
+                        <Pane onMousePressed="#onActionMariscos" prefHeight="200.0" prefWidth="200.0" styleClass="itemMenu">
                            <children>
                               <Label layoutX="48.0" layoutY="187.0" styleClass="labelMenu" text="Mariscos" />
                               <ImageView fitHeight="160.0" fitWidth="160.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="imagPizza">
@@ -82,7 +82,7 @@
                                  </image>
                               </ImageView>
                            </children></Pane>
-                        <Pane id="tableOrden" prefHeight="200.0" prefWidth="200.0" styleClass="itemMenu">
+                        <Pane id="tableOrden" onMousePressed="#onActionQueso" prefHeight="200.0" prefWidth="200.0" styleClass="itemMenu">
                            <children>
                               <Label layoutX="63.0" layoutY="186.0" styleClass="labelMenu" text="Queso" />
                               <ImageView fitHeight="160.0" fitWidth="160.0" layoutX="20.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" styleClass="imagPizza">

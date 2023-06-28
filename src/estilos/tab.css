@@ -94,6 +94,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-color: linear-gradient(to left,rgb(178, 0, 0),rgb(178,20,0));
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 }
+.backgrounnone{
+    -fx-background-color: transparent;
+}
+.TabPane {
+    -fx-background-color: red;
+}
 .tabN:disabled{
     -fx-opacity: 1;
 }
