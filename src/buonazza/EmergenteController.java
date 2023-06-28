@@ -7,8 +7,10 @@ package buonazza;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.JavaFXBuilderFactory;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,41 +23,55 @@ import javafx.stage.Stage;
  *
  * @author adria
  */
-public class EmergenteController implements Initializable {
+public class EmergenteController {
 
     /**
      * Initializes the controller class.
      */
+    public int opc;
     @FXML
-    public Stage stageEme=new Stage();
+    public Stage stageEme = new Stage();
     @FXML
     public Button bntOk;
     @FXML
     public Button btnClose;
     @FXML
-    private Label titulo;
-    
+    public Label titulo;
+
     Scene canva;
-    
-    public void popEmer() throws IOException{
-//        titulo.setText("estoy modificando");
-//        Pane pane=new Pane();
-        
-//        Stage stageEme=new Stage();
-        Parent h = FXMLLoader.load(getClass().getResource("emergente.fxml"));
-        canva = new Scene(h);
-        
+
+    public void popEmer() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("emergente.fxml"));
+        Parent root = loader.load();
+        EmergenteController controlador = loader.getController();
+        controlador.titulo("¿Ya no deseas solicitar la Orden?");
+        canva = new Scene(root);
         stageEme.setScene(canva);
         stageEme.showAndWait();
-//        btnClose.setOnAction(e->{
-//            stageEme.close();
-//        });
-
     }
-    public void closeVentana() throws Throwable{
+    
+    public void popEmer(String res) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("emergente.fxml"));
+        Parent root = loader.load();
+        EmergenteController controlador = loader.getController();
+        controlador.titulo(res);
+        canva = new Scene(root);
+        stageEme.setScene(canva);
+        stageEme.showAndWait();
+    }
 
-            Stage res= (Stage) this.btnClose.getScene().getWindow();
-            res.close();
+    public void cambiar() {
+        titulo.setText("¿Ya no deseas solicitar la Orden?");
+    }
+
+    public void closeVentana() throws Throwable {
+
+        Stage res = (Stage) this.btnClose.getScene().getWindow();
+        res.close();
+    }
+
+    public void titulo(String tit) {
+        this.titulo.setText(tit);
     }
 
     public EmergenteController() {
@@ -64,14 +80,37 @@ public class EmergenteController implements Initializable {
     public EmergenteController(String titulo) {
         this.titulo.setText(titulo);
     }
-    
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-//        this.bntOk.setOnAction(e->{
-//        });
-        
-    }    
-    
+
+    public EmergenteController(int opc) {
+        this.opc = opc;
+    }
+
+    @FXML
+
+    public void initialize() {
+//        int res=getOPC();
+//        if (this.opc==0) {
+//            this.titulo.setText("no hice nada");
+//        }else if(this.opc==1){
+//            this.titulo.setText("hola");
+//        }
+
+    }
+
+    public void setOPC(int res) {
+        this.opc = res;
+    }
+//    @FXML
+//    public void initialize(int opc){
+//        if (this.opc==0) {
+//            this.titulo.setText("no hice nada");
+//        }else if(this.opc==1){
+//            this.titulo.setText("hola");
+//        }
+//    }
+
+    private int getOPC() {
+        return this.opc;
+    }
+
 }

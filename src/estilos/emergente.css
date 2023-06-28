@@ -13,6 +13,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-spacing: 20;
     /*-fx-background-radius: 15;*/
 }
+.cant1{
+    -fx-background-color:#E6E6E6;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 15px;
+    -fx-font-size:20px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
+}
+.cant1:hover{
+    -fx-background-color: #ffff;
+}
+.cant{
+    -fx-background-color:#E6E6E6;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 15px;
+    -fx-font-size:20px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
+}
 
 .btnNaranja{
     -fx-background-color:#FD9A15 ;
@@ -44,7 +61,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .labelContent{
-    -fx-text-fill: white;
+    -fx-text-fill: #C2FDB8;
+    -fx-font-weight: bold;
+    -fx-font-size:35px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
+}
+.labetEmerTitulo{
+    -fx-text-fill:#ffffff;
     -fx-font-weight: bold;
     -fx-font-size:25px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
