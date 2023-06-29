@@ -9,7 +9,7 @@ package modelo;
  * @author adria
  */
 public class Pizza {
-    private String sabor;
+    String sabor;
     private String tamaño;
     private int cantidad;
     private String estado;

@@ -42,7 +42,18 @@ public class PizzaPila {
             return false;
         }
     }
-
+    public void addPizza(PizzaNodo res){
+        PizzaNodo n = res;
+        if (this.isVacia() == true) {
+            this.setCab(n);
+            this.nPizzas++;
+        } else {
+            PizzaNodo temp = this.getCab();
+            n.setSig(temp);
+            this.setCab(n);
+            this.nPizzas++;
+        }
+    }
     public void addPizza(String Id, String sabor, String tamaño, int cantidad, String estado) {
         PizzaNodo n = new PizzaNodo(Id, sabor.toUpperCase(), tamaño.toUpperCase(), cantidad, estado.toLowerCase());
         if (this.isVacia() == true) {
