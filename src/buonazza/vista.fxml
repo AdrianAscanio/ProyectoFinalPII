@@ -106,7 +106,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <TableView fx:id="tableOrden" layoutY="72.0" prefHeight="388.0" prefWidth="301.0" />
+                        <TableView fx:id="tableOrden" layoutY="72.0" prefHeight="388.0" prefWidth="301.0" styleClass="tOrden" />
                      </children></Pane>
                </children></AnchorPane>
       </content>

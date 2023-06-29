@@ -159,6 +159,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-padding: 10 14 10 14;
       -fx-background-radius: 7;
 }
+.btnElim1{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-image: url("../img/elimCell.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+/*    -fx-spacing: 7;*/
+    -fx-padding: 20 20 20 20;
+    -fx-valignment: center;
+    -fx-border-radius: 7;
+    -fx-background-radius: 7;
+}
+.btnElim1:hover{
+    -fx-background-image: url("../img/elimCell2.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+}
 .btnElim:hover{
     -fx-background-color: #AE1919;
 }
@@ -171,3 +188,43 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .emergente{
     -fx-background-color: red;
 }
+
+.tOrden .column-header-background{
+/*    -fx-background-color: #E6E6E6;
+    -fx-fill: transparent;
+        -fx-padding: 15;
+    -fx-spacing: 15;
+    -fx-text-fill: blue;
+        -fx-font-size:15px;
+    -fx-font: none;*/
+}
+.table-view{
+    -fx-background-color: transparent;
+    /*-fx-text-fill: white;*/
+    -fx-fill: white;
+    -fx-size:30;
+}
+.tOrden .cell{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+    -fx-background-insets: 5;
+    -fx-border-insets: 5;
+    /*-fx-border-radius: 10;*/
+    /*-fx-background-color: red;*/
+    -fx-text-fill: #1E1E1E;
+    -fx-alignment: CENTER;
+    -fx-column-halignment: center;
+/*    -fx-text-alignment: CENTER;*/
+    -fx-font-weight: bold;
+    -fx-font-size:15;
+   
+}
+
+.cellBtn{
+    -fx-alignment: CENTER;
+    -fx-content-display: center;
+}
+
+/*.tOrden .column-header{
+    -fx-text-fill: blueviolet;
+}*/

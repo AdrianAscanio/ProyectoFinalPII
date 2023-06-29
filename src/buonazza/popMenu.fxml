@@ -60,7 +60,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="288.0" layoutY="430.0" mnemonicParsing="false" styleClass="btnNaranja" text="AGREGAR" />
+      <Button fx:id="btnOK" layoutX="288.0" layoutY="430.0" mnemonicParsing="false" styleClass="btnNaranja" text="AGREGAR" />
       <Label alignment="CENTER" layoutX="51.0" layoutY="361.0" prefHeight="44.0" prefWidth="130.0" styleClass="cant" text="Cantidad" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
       <TextField fx:id="cantidad" alignment="CENTER_RIGHT" editable="false" layoutX="195.0" layoutY="362.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="36.0" prefWidth="89.0" styleClass="cant1" text="1" />
       <Button layoutX="301.0" layoutY="362.0" mnemonicParsing="false" onAction="#btnRestaOnAction" prefHeight="36.0" prefWidth="52.0" styleClass="cant1">

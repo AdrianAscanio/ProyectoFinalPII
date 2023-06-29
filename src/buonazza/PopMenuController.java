@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import modelo.PizzaNodo;
 
 /**
  * FXML Controller class
@@ -39,11 +40,17 @@ public class PopMenuController {
     @FXML public ToggleButton btnfamiliar;
 
     public int cant = 1;
+    public String sab;
+    public String IdP;
+    
+    public PizzaNodo Pizza;
 
     @FXML
     public ToggleGroup r;
     @FXML
     public Button btnClose;
+    @FXML
+    public Button btnOK;
 
     public void popUp() throws IOException {
         Stage stageEme = new Stage();
@@ -81,7 +88,11 @@ public class PopMenuController {
         stageEme.setScene(canva);
         stageEme.showAndWait();
     }
-    public void popUp(String titulo,String btn1,String btn2, String btn3) throws IOException {
+    
+    public void popUp(String titulo,String btn1,String btn2, String btn3,String sabor, String id) throws IOException {
+        System.out.println(sabor+"<---- Popup");
+        System.out.println(id+"<---- Popup");
+        
         Stage stageEme = new Stage();
         stageEme.setTitle("Menú");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("popMenu.fxml"));
@@ -92,7 +103,12 @@ public class PopMenuController {
         
         Scene canva = new Scene(root);
         stageEme.setScene(canva);
-        stageEme.showAndWait();
+        this.sab=sabor;
+        this.IdP=id;
+        System.out.println(this.sab);
+        System.out.println(this.IdP);
+        stageEme.show();
+       
     }
 
     public void btnRestaOnAction() {
@@ -100,6 +116,14 @@ public class PopMenuController {
             cant--;
         }
         cantidad.setText(String.valueOf(cant));
+    }
+    
+    public PizzaNodo requests(int opc){
+        if (opc==1) {
+             PizzaNodo a = new PizzaNodo("1111","Hawaiana","*Mini",this.cant,"ORDENAR");
+             return a;
+        }
+        return null;
     }
 
     public void btnSumaOnAction() {
@@ -109,11 +133,33 @@ public class PopMenuController {
         cantidad.setText(String.valueOf(cant));
 
     }
-
+    public PizzaNodo getResult(){
+        System.out.println(this.btnmini.isSelected());
+        System.out.println(this.sab);
+        System.out.println(this.IdP);
+        PizzaNodo res=null;
+        if (this.btnmini.isSelected()) {
+            res=new PizzaNodo(this.IdP,this.sab,"MINI",cant,"ORDEN");
+        }else if(this.btnmediana.isSelected()){
+            res= new PizzaNodo(this.IdP,this.sab,"MEDIANA",cant,"ORDEN");
+        }
+        else if(this.btnfamiliar.isSelected()){
+            res= new PizzaNodo(this.IdP,this.sab,"FAMILIAR",cant,"ORDEN");
+        }
+//        System.out.println(res.getInfo());
+        return res;
+    }
+    
+    public void onAntionBtnOk(){
+        this.Pizza=this.getResult();
+        Stage res = (Stage) btnOK.getScene().getWindow();
+        res.close();
+    }
+    
     @FXML
     public void initialize() {
-            System.out.println("vectana menu");
-            
+//            System.out.println("vectana menu");
+            this.btnOK.setOnAction(e->{this.onAntionBtnOk();});
     }
 
 }
