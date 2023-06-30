@@ -63,6 +63,13 @@ public class EmergenteController {
     public void cambiar() {
         titulo.setText("¿Ya no deseas solicitar la Orden?");
     }
+    
+    public void eliminar(){
+        this.opc=1;
+//        System.out.println(this.opc);
+        Stage ventana = (Stage) this.bntOk.getScene().getWindow();
+        ventana.close();
+    }
 
     public void closeVentana() throws Throwable {
 

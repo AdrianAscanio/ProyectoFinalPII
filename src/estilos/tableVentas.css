@@ -44,7 +44,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .cell{
     -fx-background-color: #E6E6E6;
     -fx-background-radius: 10;
-    -fx-background-insets: 5;
+    -fx-background-insets: 0 0 7 0;
     -fx-border-insets: 5;
     /*-fx-border-radius: 10;*/
     /*-fx-background-color: red;*/
@@ -53,7 +53,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 /*    -fx-text-alignment: CENTER;*/
     -fx-font-weight: bold;
     -fx-font-size:15;
+    /*-fx-spacing:  7;*/
    
 }
+.table-view .column-header .label {
+        -fx-text-fill: white ;
+    }
 
 

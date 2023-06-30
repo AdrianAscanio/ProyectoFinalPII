@@ -165,11 +165,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-image: url("../img/elimCell.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: contain;
-/*    -fx-spacing: 7;*/
-    -fx-padding: 20 20 20 20;
+    /*-fx-pref-w: 40px;*/
+    /*-fx-spacing: 7;*/
+    -fx-padding: 20;
     -fx-valignment: center;
     -fx-border-radius: 7;
     -fx-background-radius: 7;
+}
+.btnElim2{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-image: url("../img/elimCell.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+ 
+}
+.btnElim2:hover{
+        -fx-background-image: url("../img/elimCell2.png");
 }
 .btnElim1:hover{
     -fx-background-image: url("../img/elimCell2.png");
@@ -225,6 +237,62 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-content-display: center;
 }
 
-/*.tOrden .column-header{
-    -fx-text-fill: blueviolet;
-}*/
+.btnOrdElab{
+    -fx-background-color: none;
+    -fx-text-fill: #C2FDB8;
+    -fx-font-size:32;
+    -fx-font-weight:bold;
+}
+.btnEla{
+    -fx-background-color:#4DBB3B ;
+    -fx-padding: 10 30 10 30;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size:15px;
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);*/
+    -fx-background-radius: 7;
+}
+.tableOrd{
+    -fx-background-color: transparent;
+}
+
+.tableOrd .cell-arrow{
+    
+    -fx-background-color: transparent;
+}
+
+.tableOrd .cell-arrow{
+    -fx-alignment: CENTER;
+    -fx-background-color: #E6E6E6;
+    -fx-border-color: transparent;
+    /*-fx-background-image: url("../img/barra_roow.png");*/
+/*    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;*/
+    /*-fx-spacing: 10;*/
+    -fx-border-color: none;
+}
+.tableOrd .cell-arrow:selected{
+    -fx-border-color: #F7B817;
+    -fx-background-color:blue;
+    -fx-border-color: transparent;
+}
+.tableOrd .cell:selected ~ .cell{
+    -fx-background-color:red;
+}
+.tableOrd .cell {
+}
+
+.row-selection{
+    /*-fx-border-radius: 14 0 0 0;*/
+    -fx-background-color: transparent;
+    -fx-background-image:url("../img/elimCell2.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover
+    /*-fx-background-fills:#E6E6E6 ;*/
+}
+/*.ro*/
+
+.cellCab .cell-arrow{
+        -fx-background-color: #E6E6E6;
+    
+}
