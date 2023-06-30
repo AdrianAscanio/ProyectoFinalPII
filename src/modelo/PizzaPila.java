@@ -138,11 +138,11 @@ public class PizzaPila {
         if (this.nPizzas != 0) {
             PizzaNodo aux = this.cab;
             while (aux.getSig() != null) {
-                System.out.println(aux.getIdPizza());
+                System.out.println(aux.getInfo());
                 aux = aux.getSig();
 
             }
-            System.out.println(aux.getIdPizza());
+            System.out.println(aux.getInfo());
         }
     }
     

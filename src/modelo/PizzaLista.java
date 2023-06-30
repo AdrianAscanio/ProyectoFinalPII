@@ -13,6 +13,7 @@ import java.util.Stack;
  * @author adria
  */
 public class PizzaLista {
+
     PizzaNodo cab;
     PizzaNodo cola;
     int nPizzas;
@@ -43,26 +44,101 @@ public class PizzaLista {
     public void setnPizzas(int nPizzas) {
         this.nPizzas = nPizzas;
     }
+
+    public PizzaNodo BuscarId(String id) {
+
+        if (this.nPizzas != 0) {
+            PizzaNodo aux = this.cab;
+            while (aux.getSig() != null) {
+                if (aux.getIdPizza().equals(id)) {
+                    return aux;
+                }
+                aux = aux.getSig();
+            }
+            if (aux.getIdPizza().equals(id)) {
+                return aux;
+            }
+        }
+        return null;
+    }
+
+    public void quitarTope() {
+        if (this.nPizzas != 0) {
+            PizzaNodo temp = this.cab;
+            this.cab = temp.getSig();
+            temp = null;
+            this.nPizzas--;
+        }
+    }
+
+    public void Elimiar(String id) {
+        if (this.BuscarId(id).getIdPizza().equals(this.cab.getIdPizza())) {
+            this.quitarTope();
+            this.nPizzas--;
+        } else {
+            this.BuscarIdAnt(id).setSig(this.BuscarId(id).getSig());
+            this.nPizzas--;
+        }
+    }
     
-    
-    void addCab(PizzaNodo n){
-        if (this.cab== null) {
+    public void Eliminar(String id){
+        if(this.cab==null){
+            return;
+        }
+        if(this.cab.idPizza.equals(id)){
+            this.cab=this.cab.sig;
+            return;
+        }
+        PizzaNodo aux= this.cab;
+        while(aux.sig!=null){
+                if(aux.sig.idPizza.equals(id)){
+                    aux.sig=aux.sig.sig;
+                    return;
+                }
+        }
+        aux=aux.sig;
+    }
+
+    public PizzaNodo BuscarIdAnt(String id) {
+
+        if (this.nPizzas != 0) {
+            PizzaNodo aux = this.cab;
+            PizzaNodo ant = null;
+            while (aux.getSig() != null) {
+
+                if (aux.getIdPizza().equals(id)) {
+                    return ant;
+                }
+                ant = aux;
+                aux = aux.getSig();
+            }
+            if (aux.getIdPizza().equals(id)) {
+                return ant;
+            }
+
+        }
+        return null;
+    }
+
+    public void addCab(PizzaNodo n) {
+        if (this.cab == null) {
             cab = n;
             cola = n;
             this.nPizzas++;
         } else {
-            PizzaLista res =new PizzaLista();
-            
+            PizzaLista res = new PizzaLista();
+
             cola.sig = n;
 //            n.sig = cab;
-            
+
             this.cola = this.getUltimo();
-            this.nPizzas+=this.contador(n);
+            this.nPizzas += this.contador(n);
         }
     }
-    void addFinal(String idPizza, String sabor, String tamaño, int cantidad, String estado){
-        PizzaNodo n = new PizzaNodo(idPizza,sabor,tamaño,cantidad,estado);
-        if (this.cab== null) {
+
+    public void addFinal(String idPizza, String sabor, String tamaño, int cantidad, String estado) {
+        PizzaNodo n = new PizzaNodo(idPizza, sabor, tamaño, cantidad, estado);
+        if (this.cab == null) {
             cab = n;
             cola = n;
             this.nPizzas++;
@@ -73,42 +149,63 @@ public class PizzaLista {
             this.nPizzas++;
         }
     }
-    public int contador(PizzaNodo cab){
-        int contador=0;
-        if(cab!=null){
-            PizzaNodo aux=cab;
-            while(aux.sig!=null){
-                aux=aux.sig;
+
+    public void addFinal(PizzaNodo n) {
+        if (this.cab == null) {
+            cab = n;
+            cola = n;
+            this.nPizzas++;
+        } else {
+            cola.sig = n;
+//            n.sig = cab;
+            this.cola = n;
+            this.nPizzas++;
+        }
+    }
+
+    public int contador(PizzaNodo cab) {
+        int contador = 0;
+        if (cab != null) {
+            PizzaNodo aux = cab;
+            while (aux.sig != null) {
+                aux = aux.sig;
                 contador++;
             }
             contador++;
         }
         return contador;
     }
-    public void addPila(PizzaPila lista){
-        PizzaNodo aux=lista.getCab();
-        if (aux!=null) {
+
+    public void addPila(PizzaPila lista) {
+        PizzaNodo aux = lista.getCab();
+        if (aux != null) {
             System.out.println("exito");
-            while(aux.sig!=null){
-                System.out.println("se agrego");
-                this.addFinal(aux.idPizza, aux.getSabor(), aux.getTamaño(),aux.getCantidad(),aux.getEstado());
-                aux=aux.sig;
+            while (aux.sig != null) {
+                
+                this.addFinal(aux);
+                aux = aux.sig;
             }
-             this.addFinal(aux.idPizza, aux.getSabor(), aux.getTamaño(),aux.getCantidad(),aux.getEstado());
-        }else{System.out.println("fallo");}
+            this.addFinal(aux);
+            
+            System.out.println("Se agrgaron todos los nodos de la Pila");
+        } else {
+            System.out.println("fallo en agregacion de nodo en listas");
+        }
     }
-    public PizzaNodo getUltimo(){
-        PizzaNodo aux=cab;
-        if(cab!=null){
-            
-            while (aux.sig!=null){
-                aux=aux.sig;
+
+    public PizzaNodo getUltimo() {
+        PizzaNodo aux = cab;
+        if (cab != null) {
+
+            while (aux.sig != null) {
+                aux = aux.sig;
             }
-            
+
         }
         return aux;
     }
-    public void  leerVentas(){
+
+    public void leerVentas() {
 //        PizzaLista res = new PizzaLista(); // lista auxiliar para recibir datos del documento
         File doc = new File(".\\ventas.txt");// llamada del documento,
         try {
@@ -122,6 +219,7 @@ public class PizzaLista {
         }
 //        this.cab=res.cab;  // Retorna la lista con los elementos encontrados
     }
+
     public void Lista() {
         if (this.nPizzas != 0) {
             PizzaNodo aux = this.cab;
@@ -133,4 +231,3 @@ public class PizzaLista {
         }
     }
 }
-

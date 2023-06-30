@@ -66,6 +66,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-font-size:35px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
 }
+.labelContent1{
+    -fx-text-fill: #C2FDB8;
+    -fx-font-weight: bold;
+    -fx-font-size:25px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
+}
 .labetEmerTitulo{
     -fx-text-fill:#ffffff;
     -fx-font-weight: bold;
@@ -98,6 +104,18 @@ labelC{
     -fx-font-size:25px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
 }
+.btnCombo{
+    -fx-background-color: #E6E6E6;
+    -fx-background-radius: 10;
+/*    -fx-padding: 10;*/
+    -fx-text-fill: #1E1E1E;
+    -fx-font-weight: bold;
+    -fx-font-size:25px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
+}
+.btnCombo:hover{
+    -fx-background-color: #ffffff;
+}
 .btnToglee:hover{
     -fx-background-color: #ffffff;
 }
@@ -113,4 +131,10 @@ labelC{
 }
 .btnElim:hover{
     -fx-background-color: #AE1919;
+}
+
+.separador .line{
+    -fx-background-color: #B20000;
+    -fx-opacity: 0.2;
+    -fx-border-color: #B20000;
 }
