@@ -62,6 +62,8 @@ public class PizzaNodo extends Pizza {
             icon = new Image("img/tradicional.png");
         }else if (this.sabor.equals("MARISCOS")) {
             icon = new Image("img/mariscos.png");
+        }else{
+            icon = new Image("img/crear.png");
         }
         ImageView res = new ImageView(icon);
         res.setFitWidth(50);

@@ -151,6 +151,7 @@ public class PizzaLista {
     }
 
     public void addFinal(PizzaNodo n) {
+        n.sig=null;
         if (this.cab == null) {
             cab = n;
             cola = n;

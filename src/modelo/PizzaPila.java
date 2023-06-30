@@ -42,7 +42,8 @@ public class PizzaPila {
             return false;
         }
     }
-    public void addPizza(PizzaNodo res){
+
+    public void addPizza(PizzaNodo res) {
         PizzaNodo n = res;
         if (this.isVacia() == true) {
             this.setCab(n);
@@ -54,6 +55,18 @@ public class PizzaPila {
             this.nPizzas++;
         }
     }
+
+    public void addPizzaFinal(PizzaNodo res) {
+        PizzaNodo n = res;
+        n.sig = null;
+        if (this.isVacia() == true) {
+            this.setCab(n);
+            this.nPizzas++;
+        } else {
+            this.ultimo().sig = n;
+        }
+    }
+
     public void addPizza(String Id, String sabor, String tamaño, int cantidad, String estado) {
         PizzaNodo n = new PizzaNodo(Id, sabor.toUpperCase(), tamaño.toUpperCase(), cantidad, estado.toLowerCase());
         if (this.isVacia() == true) {
@@ -65,6 +78,40 @@ public class PizzaPila {
             this.setCab(n);
             this.nPizzas++;
         }
+    }
+    
+    public void addUltimo(PizzaNodo n){
+        n.setSig(null);
+        if (this.cab == null) {
+            cab = n;
+            this.nPizzas++;
+        } else {
+            PizzaNodo Aux= this.cab;
+           while(Aux.sig!=null){
+               Aux=Aux.sig;
+           
+           }
+           Aux.setSig(n);
+            this.nPizzas++;
+        }
+    }
+
+    public void addPizzaCola(PizzaPila res) {
+        PizzaNodo[] lista= new PizzaNodo[res.getnPizzas()];
+        PizzaNodo aux=res.getCab();
+        for (int i = 0; i < res.nPizzas; i++) {
+            lista[i]=aux;
+//            lista[i].setSig(null);
+            aux=aux.sig;
+        }
+        System.out.println(lista.length);
+        for (int i = lista.length-1; i > -1; i--) {
+            this.addUltimo(lista[i]);
+//            this.ultimo().setSig(lista[i]);
+        }
+
+        System.out.println("finalizado");
+        
     }
 
     public PizzaNodo BuscarId(String id) {
@@ -132,6 +179,7 @@ public class PizzaPila {
             this.BuscarIdAnt(id).setSig(this.BuscarId(id).getSig());
             this.nPizzas--;
         }
+        if(this.nPizzas==-1){this.nPizzas=0;}
     }
 
     public void Lista() {
@@ -145,7 +193,5 @@ public class PizzaPila {
             System.out.println(aux.getInfo());
         }
     }
-    
-
 
 }
