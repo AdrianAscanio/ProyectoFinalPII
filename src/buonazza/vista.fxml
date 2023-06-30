@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 
 <TabPane id="tabp" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1000.0" scaleShape="false" stylesheets="@../estilos/tab.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="buonazza.VistaController">
   <tabs>
@@ -47,7 +48,7 @@
                                  </image>
                               </ImageView>
                            </children></Pane>
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="itemMenu">
+                        <Pane onMousePressed="#onActionCrear" prefHeight="200.0" prefWidth="200.0" styleClass="itemMenu">
                            <children>
                               <Label layoutX="69.0" layoutY="180.0" styleClass="labelMenu" text="Crear" />
                               <ImageView fitHeight="160.0" fitWidth="160.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="imagPizza">
@@ -96,8 +97,8 @@
                   <Pane layoutX="786.0" layoutY="366.0" prefHeight="550.0" prefWidth="300.0" styleClass="barOrden" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
                         <Label layoutX="104.0" layoutY="27.0" styleClass="labelTitulo" text="PEDIDO" />
-                        <Button fx:id="agregar" layoutX="142.0" layoutY="485.0" mnemonicParsing="false" onAction="#addPizza" styleClass="btnNaranja" text="ORDENAR" />
-                        <Button layoutX="35.0" layoutY="485.0" mnemonicParsing="false" onAction="#popUp" styleClass="btnElim">
+                        <Button fx:id="agregar" layoutX="142.0" layoutY="485.0" mnemonicParsing="false" onAction="#OnPassOrdenes" styleClass="btnNaranja" text="ORDENAR" />
+                        <Button fx:id="elimOrd" layoutX="35.0" layoutY="485.0" mnemonicParsing="false" onAction="#popUp" styleClass="btnElim">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -115,20 +116,14 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TabPane layoutX="246.0" layoutY="55.0" prefHeight="200.0" prefWidth="200.0" styleClass="backgrounnone" stylesheets="@../estilos/tapPane.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0">
-                    <tabs>
-                      <Tab styleClass="tabN" text="Untitled Tab 1">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                        </content>
-                      </Tab>
-                      <Tab styleClass="tabN" text="Untitled Tab 2">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                        </content>
-                      </Tab>
-                    </tabs>
-                  </TabPane>
+                  <Button fx:id="btnOrdenes" layoutX="194.0" layoutY="27.0" mnemonicParsing="false" onAction="#InsertTableOrdenes" styleClass="btnOrdElab" text="Lista de Ordenes" />
+                  <Button fx:id="btnEjec" layoutX="538.0" layoutY="27.0" mnemonicParsing="false" onAction="#insertTableElabo" styleClass="btnOrdElab" text="En Ejecución" />
+                  <VBox layoutX="50.0" layoutY="-4.0" prefHeight="200.0" prefWidth="617.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+                     <children>
+                        <TableView fx:id="tableElaboracion" prefHeight="1000.0" prefWidth="800.0" />
+                        <TableView fx:id="tableOrdenes" prefHeight="1000.0" prefWidth="617.0" stylesheets="@../estilos/tableVentas.css" />
+                     </children>
+                  </VBox>
                </children></AnchorPane>
       </content>
     </Tab>
