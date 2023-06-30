@@ -116,11 +116,12 @@ labelC{
 .btnCombo:hover{
     -fx-background-color: #ffffff;
 }
+
 .btnToglee:hover{
     -fx-background-color: #ffffff;
 }
 .btnToglee:selected{
-    -fx-background-color: #00ffcc;
+    -fx-background-color: #FFFFFF;
 }
 
 .btnElim{

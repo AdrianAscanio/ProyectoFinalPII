@@ -6,16 +6,17 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="840.0" styleClass="emer1" stylesheets="@../estilos/emergente.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="840.0" styleClass="emer1" stylesheets="@../estilos/emergente.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="buonazza.PopCrearController">
    <children>
       <Pane layoutY="42.0" prefHeight="500.0" prefWidth="470.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ToggleButton layoutX="29.0" layoutY="120.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="367.0" styleClass="btnToglee" text="  MINI">
+            <ToggleButton fx:id="Mini" layoutX="29.0" layoutY="120.0" mnemonicParsing="false" onAction="#onSelectMini" prefHeight="58.0" prefWidth="367.0" styleClass="btnToglee" text="  MINI">
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -23,8 +24,11 @@
                      </image>
                   </ImageView>
                </graphic>
+               <toggleGroup>
+                  <ToggleGroup fx:id="group" />
+               </toggleGroup>
             </ToggleButton>
-            <ToggleButton layoutX="29.0" layoutY="260.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="367.0" styleClass="btnToglee" text="  FAMILIAR">
+            <ToggleButton fx:id="Fam" layoutX="29.0" layoutY="260.0" mnemonicParsing="false" onAction="#onSelectFam" prefHeight="58.0" prefWidth="367.0" styleClass="btnToglee" text="  FAMILIAR" toggleGroup="$group">
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -33,7 +37,7 @@
                   </ImageView>
                </graphic>
             </ToggleButton>
-            <ToggleButton layoutX="29.0" layoutY="190.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="367.0" styleClass="btnToglee" text="   MEDIANA">
+            <ToggleButton fx:id="Med" layoutX="29.0" layoutY="190.0" mnemonicParsing="false" onAction="#onSelectMed" prefHeight="58.0" prefWidth="367.0" styleClass="btnToglee" text="   MEDIANA" toggleGroup="$group">
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -48,7 +52,7 @@
                </children>
             </Pane>
             <Separator layoutX="417.0" layoutY="101.0" orientation="VERTICAL" prefHeight="361.0" prefWidth="4.0" styleClass="separador" />
-            <Button fx:id="btnCancel" layoutX="32.0" layoutY="416.0" mnemonicParsing="false" styleClass="btnElim">
+            <Button fx:id="btnCancel" layoutX="32.0" layoutY="416.0" mnemonicParsing="false" onAction="#onClose" styleClass="btnElim">
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -58,8 +62,8 @@
                </graphic>
             </Button>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="32.0" layoutY="348.0" prefHeight="44.0" prefWidth="130.0" styleClass="cant" text="CANTIDAD" />
-            <TextField alignment="CENTER_RIGHT" layoutX="175.0" layoutY="348.0" prefHeight="44.0" prefWidth="89.0" styleClass="cant1" text="1" />
-            <Button layoutX="340.0" layoutY="348.0" mnemonicParsing="false" styleClass="cant1">
+            <TextField fx:id="cantidad" alignment="CENTER_RIGHT" layoutX="175.0" layoutY="348.0" prefHeight="44.0" prefWidth="89.0" styleClass="cant1" text="1" />
+            <Button fx:id="suma" layoutX="340.0" layoutY="348.0" mnemonicParsing="false" onAction="#onSuma" styleClass="cant1">
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -68,7 +72,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="274.0" layoutY="348.0" mnemonicParsing="false" styleClass="cant1">
+            <Button fx:id="resta" layoutX="274.0" layoutY="348.0" mnemonicParsing="false" onAction="#onResta" styleClass="cant1">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -77,12 +81,12 @@
                   </ImageView>
                </graphic>
             </Button>
-            <ComboBox layoutX="442.0" layoutY="142.0" prefHeight="52.0" prefWidth="367.0" styleClass="btnCombo" />
+            <ComboBox fx:id="Combo1" layoutX="442.0" layoutY="142.0" onAction="#onSabor1" prefHeight="52.0" prefWidth="367.0" styleClass="btnCombo" />
             <Label layoutX="442.0" layoutY="101.0" styleClass="labelContent1" text="INGREDIENTES" />
-            <ComboBox layoutX="442.0" layoutY="210.0" prefHeight="52.0" prefWidth="367.0" styleClass="btnCombo" />
-            <ComboBox layoutX="442.0" layoutY="277.0" prefHeight="52.0" prefWidth="367.0" styleClass="btnCombo" />
-            <Button layoutX="679.0" layoutY="416.0" mnemonicParsing="false" styleClass="btnNaranja" text="AGREGAR" />
-            <Label alignment="CENTER" layoutX="442.0" layoutY="348.0" prefHeight="17.0" prefWidth="367.0" styleClass="labelContent" text="Valor $" />
+            <ComboBox fx:id="Combo2" layoutX="442.0" layoutY="210.0" onAction="#onSabor2" prefHeight="52.0" prefWidth="367.0" styleClass="btnCombo" />
+            <ComboBox fx:id="Combo3" layoutX="442.0" layoutY="277.0" onAction="#onSabor3" prefHeight="52.0" prefWidth="367.0" styleClass="btnCombo" />
+            <Button fx:id="btnOK" layoutX="679.0" layoutY="416.0" mnemonicParsing="false" onAction="#onBtnOK" styleClass="btnNaranja" text="AGREGAR" />
+            <Label fx:id="valor" alignment="CENTER" layoutX="442.0" layoutY="348.0" prefHeight="17.0" prefWidth="367.0" styleClass="labelContent" text="Valor $" />
          </children>
       </Pane>
    </children>
