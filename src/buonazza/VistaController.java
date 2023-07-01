@@ -7,6 +7,8 @@ package buonazza;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -99,7 +101,19 @@ public class VistaController {
             this.Orden.addPizza(p);
             this.actualizarOrden();
             this.idPizza++;
+            this.emerConfirm("Se agregó Correctamente");
         }
+    }
+
+    public void emerConfirm(String titulo) throws IOException {
+        FXMLLoader loader1 = new FXMLLoader(getClass().getResource("popConfirm.fxml"));
+        Parent root1 = loader1.load();
+        PopConfirmController control1 = loader1.getController();
+        control1.setTitle(titulo);
+        Scene sc1 = new Scene(root1);
+        Stage st1 = new Stage();
+        st1.setScene(sc1);
+        st1.show();
     }
 
     public void onActionMariscos() throws IOException {
@@ -121,6 +135,7 @@ public class VistaController {
             this.Orden.addPizza(p);
             this.actualizarOrden();
             this.idPizza++;
+            this.emerConfirm("Se agregó Correctamente");
         }
 
     }
@@ -144,6 +159,7 @@ public class VistaController {
             this.Orden.addPizza(p);
             this.actualizarOrden();
             this.idPizza++;
+            this.emerConfirm("Se agregó Correctamente");
         }
     }
 
@@ -166,6 +182,7 @@ public class VistaController {
             this.Orden.addPizza(p);
             this.actualizarOrden();
             this.idPizza++;
+            this.emerConfirm("Se agregó Correctamente");
         }
     }
 
@@ -188,6 +205,7 @@ public class VistaController {
             this.Orden.addPizza(p);
             this.actualizarOrden();
             this.idPizza++;
+            this.emerConfirm("Se agregó Correctamente");
         }
     }
 
@@ -202,12 +220,11 @@ public class VistaController {
         st.showAndWait();
         if (control.opc == 1) {
             this.p = control.Pizza;
-//            this.p.setValor(control.precio);
-            System.out.println(control.precio+"<---- valor del nodo creado");
+            System.out.println(control.precio + "<---- valor del nodo creado");
             this.Orden.addPizza(p);
             this.actualizarOrden();
             this.idPizza++;
-            
+            this.emerConfirm("Se agregó Correctamente");
         }
     }
 
@@ -229,7 +246,7 @@ public class VistaController {
         TableColumn<PizzaNodo, String> col6 = new TableColumn<>("Costo");
         col6.setCellValueFactory(new PropertyValueFactory<>("valor"));
 
-        this.tableVentas.getColumns().addAll(col,col1, col2, col3, col4, col6,col5);
+        this.tableVentas.getColumns().addAll(col, col1, col2, col3, col4, col6, col5);
     }
 
     public void initTableOrdenElab() {
@@ -260,6 +277,7 @@ public class VistaController {
                                 p = (PizzaNodo) tableOrdenes.getSelectionModel().getSelectedItem();
                                 Ordenes.Elimiar(p.getIdPizza());
                                 actualizarOrdenes();
+                                emerConfirm("Se eliminó orden");
 
                             } catch (Exception r) {
                                 System.out.println("error en celda" + r);
@@ -292,12 +310,18 @@ public class VistaController {
                         AddEla.getStyleClass().add("btnEla");
                         AddEla.setPrefSize(120, 40);
                         AddEla.setOnAction(e -> {
+
                             p = (PizzaNodo) tableOrdenes.getSelectionModel().getSelectedItem();
                             Elaboracion.addUltimo(p);
                             Ordenes.Elimiar(p.getIdPizza());
                             System.out.println(Elaboracion.getnPizzas() + " numero de nodo en Elaboracion");
                             actualizarOrdenes();
                             actualizarElaboracion();
+                            try {
+                                emerConfirm("Se agregó Correctamente a Elaboración");
+                            } catch (IOException ex) {
+//                                Logger.getLogger(VistaController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
                         });
 
                         HBox managebtn = new HBox(AddEla);
@@ -356,6 +380,7 @@ public class VistaController {
                             ventas.addNodoVentasDoc(p);
                             actualizarVentas();
                             actualizarElaboracion();
+                            emerConfirm("Se agregó a Ventas");
 
                         });
 
@@ -367,6 +392,10 @@ public class VistaController {
                         setGraphic(managebtn);
                         setText(null);
                     }
+                }
+
+                private void emerConfirm(String se_agregó_a_Ventas) {
+                    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
                 }
             };
             return cell;
@@ -423,6 +452,15 @@ public class VistaController {
             this.Orden = new PizzaPila();
             this.Orden.getnPizzas();
             this.actualizarOrden();
+            FXMLLoader loader1 = new FXMLLoader(getClass().getResource("popConfirm.fxml"));
+            Parent root1 = loader1.load();
+            PopConfirmController control1 = loader1.getController();
+            control1.setTitle("Se Agrego Correctamente");
+            Scene sc1 = new Scene(root1);
+            Stage st1 = new Stage();
+            st1.setScene(sc1);
+            st1.show();
+
         }
 
     }
@@ -529,7 +567,14 @@ public class VistaController {
                                 p = (PizzaNodo) tableOrden.getSelectionModel().getSelectedItem();
                                 Orden.Elimiar(p.getIdPizza());
                                 actualizarOrden();
-
+                                FXMLLoader loader1 = new FXMLLoader(getClass().getResource("popConfirm.fxml"));
+                                Parent root1 = loader1.load();
+                                PopConfirmController control1 = loader1.getController();
+                                control1.setTitle("Se Elimino correctamente");
+                                Scene sc1 = new Scene(root1);
+                                Stage st1 = new Stage();
+                                st1.setScene(sc1);
+                                st1.show();
                             } catch (Exception r) {
                                 System.out.println("error en celda");
                             }
@@ -581,41 +626,17 @@ public class VistaController {
         this.actualizarElaboracion();
         this.paneTable.getChildren().clear();
         this.paneTable.getChildren().add(this.tableElaboracion);
-//        this.tableElaboracion.setDisable(true);
         this.tableElaboracion.setPrefHeight(1000);
-//        this.tableElaboracion.setVisible(true);
         this.tableOrdenes.setPrefHeight(-110);
-//        this.tableOrdenes.setVisible(false);
     }
 
-    public void PassOrdenes() {
-        this.tableOrden.getItems().clear();
-        System.out.println(this.Orden.getnPizzas());
-        PizzaNodo aux = this.Orden.getCab();
-        if (this.Orden.getnPizzas() != 0) {
-            while (aux.getSig() != null) {
-                System.out.println("agregado");
-                Ordenes.addPizza(aux);
-                aux = aux.getSig();
-
-            }
-        }
-
-        System.out.println("agregado");
-        Ordenes.addPizza(aux);
-//        this.Ordenes.addPila(Orden);
-        this.actualizarOrdenes();
-        this.Orden = new PizzaPila();
-        System.out.println(this.Orden.getnPizzas());
-
-    }
-
-    public void OnPassOrdenes() {
+    public void OnPassOrdenes() throws IOException {
         this.Ordenes.addPizzaCola(Orden);
         this.actualizarOrdenes();
         this.tableOrden.getItems().clear();
         Orden = new PizzaPila();
         this.actualizarOrden();
+        this.emerConfirm("La Orden fue solicitada");
     }
 
     @FXML
@@ -632,7 +653,7 @@ public class VistaController {
         this.initTableOrdenElab();
         this.initTableElabo();
         this.InsertTableOrdenes();
-        this.idPizza=ventas.obtenerid()+1;
+        this.idPizza = ventas.obtenerid() + 1;
 
     }
 
