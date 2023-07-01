@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="500.0" styleClass="emergente" stylesheets="@../estilos/emergente.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="buonazza.PopConfirmController">
+   <children>
+      <Label fx:id="Titulo" alignment="CENTER" layoutX="41.0" layoutY="142.0" prefHeight="17.0" prefWidth="395.0" styleClass="labetEmerTitulo" text="Label" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+      <Button fx:id="btn" layoutX="209.0" layoutY="223.0" mnemonicParsing="false" onAction="#onButton" styleClass="btnNaranja" text="OK" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="199.08592224121094" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../img/buenazza.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
