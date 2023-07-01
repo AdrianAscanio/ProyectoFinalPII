@@ -69,6 +69,12 @@ public class VistaController {
     @FXML
     public TableView tableElaboracion;
     @FXML
+    public VBox paneTable;
+    @FXML
+    public Label PrecioOrd;
+    @FXML
+    public Label TotalVentas;
+    @FXML
     int idPizza = 0;
     @FXML
     PizzaNodo p = null;
@@ -196,15 +202,20 @@ public class VistaController {
         st.showAndWait();
         if (control.opc == 1) {
             this.p = control.Pizza;
+//            this.p.setValor(control.precio);
+            System.out.println(control.precio+"<---- valor del nodo creado");
             this.Orden.addPizza(p);
             this.actualizarOrden();
             this.idPizza++;
+            
         }
     }
 
     public void initTableVentas() {
         tableVentas.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-
+        VBox.setVgrow(tableVentas, Priority.ALWAYS);
+        TableColumn<PizzaNodo, String> col = new TableColumn<>("");
+        col.setCellValueFactory(new PropertyValueFactory<>("img"));
         TableColumn<PizzaNodo, String> col1 = new TableColumn<>("id");
         col1.setCellValueFactory(new PropertyValueFactory<>("idPizza"));
         TableColumn<PizzaNodo, String> col2 = new TableColumn<>("Sabor");
@@ -215,13 +226,15 @@ public class VistaController {
         col4.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
         TableColumn<PizzaNodo, String> col5 = new TableColumn<>("Estado");
         col5.setCellValueFactory(new PropertyValueFactory<>("estado"));
-        
-        this.tableVentas.getColumns().addAll(col1, col2, col3, col4, col5);
+        TableColumn<PizzaNodo, String> col6 = new TableColumn<>("Costo");
+        col6.setCellValueFactory(new PropertyValueFactory<>("valor"));
+
+        this.tableVentas.getColumns().addAll(col,col1, col2, col3, col4, col6,col5);
     }
 
     public void initTableOrdenElab() {
 //        this.tableOrdenes.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-
+        VBox.setVgrow(tableOrdenes, Priority.ALWAYS);
         TableColumn<PizzaNodo, String> col1 = new TableColumn<>("id");
         col1.setCellValueFactory(new PropertyValueFactory<>("idPizza"));
         TableColumn<PizzaNodo, String> col2 = new TableColumn<>("Sabor");
@@ -247,7 +260,7 @@ public class VistaController {
                                 p = (PizzaNodo) tableOrdenes.getSelectionModel().getSelectedItem();
                                 Ordenes.Elimiar(p.getIdPizza());
                                 actualizarOrdenes();
-                                
+
                             } catch (Exception r) {
                                 System.out.println("error en celda" + r);
                             }
@@ -266,7 +279,7 @@ public class VistaController {
             return cell;
         };
         col5.setCellFactory(cellNew);
-        TableColumn<PizzaNodo, String> col6 = new TableColumn<>("Elaborar");
+        TableColumn<PizzaNodo, String> col6 = new TableColumn<>("");
         Callback<TableColumn<PizzaNodo, String>, TableCell<PizzaNodo, String>> cellNew2 = (TableColumn<PizzaNodo, String> param) -> {
             final TableCell<PizzaNodo, String> cell = new TableCell<PizzaNodo, String>() {
                 public void updateItem(String item, boolean empty) {
@@ -309,7 +322,7 @@ public class VistaController {
         col3.setPrefWidth(100);
         col4.setPrefWidth(100);
         col6.setPrefWidth(200);
-        
+
         this.tableOrdenes.getColumns().addAll(col1, col2, col3, col4, col5, col6);
     }
 
@@ -338,11 +351,12 @@ public class VistaController {
                         AddV.getStyleClass().add("btnEla");
                         AddV.setPrefSize(120, 40);
                         AddV.setOnAction(e -> {
-//                            p = (PizzaNodo) tableElaboracion.getSelectionModel().getSelectedItem();
-//                            Elaboracion.addUltimo(p);
-//                            Ordenes.Elimiar(p.getIdPizza());
-//                            System.out.println(Elaboracion.getnPizzas() + " numero de nodo en Elaboracion");
-//                            actualizarElaboracion();
+                            p = (PizzaNodo) tableElaboracion.getSelectionModel().getSelectedItem();
+                            Elaboracion.Elimiar(p.getIdPizza());
+                            ventas.addNodoVentasDoc(p);
+                            actualizarVentas();
+                            actualizarElaboracion();
+
                         });
 
                         HBox managebtn = new HBox(AddV);
@@ -373,6 +387,7 @@ public class VistaController {
                 tableVentas.getItems().clear();
             }
             if (ventas.getnPizzas() == 1) {
+                tableVentas.getItems().clear();
                 tableVentas.getItems().add(ventas.getCab());
             } else {
                 PizzaNodo i = ventas.getCab();
@@ -384,7 +399,11 @@ public class VistaController {
                 tableVentas.getItems().add(i);
             }
         }
+        this.actLabelTotalVentas();
+    }
 
+    public void actLabelTotalVentas() {
+        this.TotalVentas.setText("Total $" + this.ventas.getTotalPrecio());
     }
 
     public void popUp() throws IOException {
@@ -403,13 +422,8 @@ public class VistaController {
             this.tableOrden.getItems().clear();
             this.Orden = new PizzaPila();
             this.Orden.getnPizzas();
+            this.actualizarOrden();
         }
-//        EmergenteController emer = new EmergenteController();
-//
-//        emer.popEmer("¿Deseas Cancelar La orden?");
-//        emer.btnClose.setOnAction(e -> {
-//            emer.stageEme.close();
-//        });
 
     }
 
@@ -423,8 +437,8 @@ public class VistaController {
     public void actualizarOrden() {
         System.out.println(Orden.getnPizzas() + "<------- Actualizadon ");
         if (Orden.getnPizzas() != 0) {
-                this.tableOrden.getItems().clear();
-            System.out.println(Orden.getnPizzas()+" verif acutalizar en ordenes");
+            this.tableOrden.getItems().clear();
+            System.out.println(Orden.getnPizzas() + " verif acutalizar en ordenes");
             if (Orden.getnPizzas() == 1) {
                 this.tableOrden.getItems().clear();
                 tableOrden.getItems().add(Orden.getCab());
@@ -437,16 +451,17 @@ public class VistaController {
                 }
                 tableOrden.getItems().add(i);
             }
-        }else{
+        } else {
             this.tableOrden.getItems().clear();
         }
+        this.PrecioOrd.setText("Total $" + this.Orden.getTotalPrecio());
     }
 
     public void actualizarOrdenes() {
         System.out.println(Ordenes.getnPizzas() + "<------- Actualizadon ");
         if (Ordenes.getnPizzas() != 0) {
-                this.tableOrdenes.getItems().clear();
-            System.out.println(Ordenes.getnPizzas()+" verif acutalizar en ordenes");
+            this.tableOrdenes.getItems().clear();
+            System.out.println(Ordenes.getnPizzas() + " verif acutalizar en ordenes");
             if (Ordenes.getnPizzas() == 1) {
                 this.tableOrdenes.getItems().clear();
                 tableOrdenes.getItems().add(Ordenes.getCab());
@@ -459,7 +474,7 @@ public class VistaController {
                 }
                 tableOrdenes.getItems().add(i);
             }
-        }else{
+        } else {
             this.tableOrdenes.getItems().clear();
         }
     }
@@ -467,8 +482,8 @@ public class VistaController {
     public void actualizarElaboracion() {
         System.out.println(Elaboracion.getnPizzas() + "<------- Actualizadon ");
         if (Elaboracion.getnPizzas() != 0) {
-                this.tableElaboracion.getItems().clear();
-            System.out.println(Elaboracion.getnPizzas()+" verif acutalizar en ordenes");
+            this.tableElaboracion.getItems().clear();
+            System.out.println(Elaboracion.getnPizzas() + " verif acutalizar en ordenes");
             if (Elaboracion.getnPizzas() == 1) {
                 this.tableElaboracion.getItems().clear();
                 tableElaboracion.getItems().add(Elaboracion.getCab());
@@ -481,7 +496,7 @@ public class VistaController {
                 }
                 tableElaboracion.getItems().add(i);
             }
-        }else{
+        } else {
             this.tableElaboracion.getItems().clear();
         }
     }
@@ -549,12 +564,28 @@ public class VistaController {
         this.initTableOrdenElab();
         this.actualizarOrdenes();
     }
-    
-    public void InsertTableOrdenes(){
+
+    public void InsertTableOrdenes() {
         this.actualizarOrdenes();
+        this.paneTable.getChildren().clear();
+        this.paneTable.getChildren().add(this.tableOrdenes);
+        this.tableElaboracion.setPrefHeight(-110);
+//        this.tableElaboracion.
+//        this.tableElaboracion.setVisible(false);
+        this.tableOrdenes.setPrefHeight(1000);
+//        this.tableOrdenes.setVisible(true);
+
     }
-    public void insertTableElabo(){
+
+    public void insertTableElabo() {
         this.actualizarElaboracion();
+        this.paneTable.getChildren().clear();
+        this.paneTable.getChildren().add(this.tableElaboracion);
+//        this.tableElaboracion.setDisable(true);
+        this.tableElaboracion.setPrefHeight(1000);
+//        this.tableElaboracion.setVisible(true);
+        this.tableOrdenes.setPrefHeight(-110);
+//        this.tableOrdenes.setVisible(false);
     }
 
     public void PassOrdenes() {
@@ -594,18 +625,14 @@ public class VistaController {
 
     public void initialize() {
 
-//            System.out.println("hola");s
-//            TableColumn<String, String> col1 = new TableColumn<>("id");
-//        col1.setCellValueFactory(new PropertyValueFactory<>("id"));
-//        tableOrden.getColumns().addAll(col1);
         this.tableOrdenes.getStyleClass().add("tableOrd");
         this.initTableOrden();
         this.initTableVentas();
         this.actualizarVentas();
         this.initTableOrdenElab();
         this.initTableElabo();
-//            pag.setPageFactory(value);
-//        tableOrden.getItems().add();
+        this.InsertTableOrdenes();
+        this.idPizza=ventas.obtenerid()+1;
 
     }
 

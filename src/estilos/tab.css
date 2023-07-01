@@ -12,11 +12,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .TabPane{
     /*-fx-background-image: url("fondo.png") ;*/
     -fx-background-position: center;
-    -fx-background-size:cover; 
+    -fx-background-size:cover;
     -fx-background-image: url("../img/fondo_buonazza.png");
 
 
-    
+
 }
 /*#tabicon{
     -fx-background-image: url("buenazza.png");
@@ -57,9 +57,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     /*-fx-border-radius: 0;*/
     -fx-padding :20 30 20 30;
     -fx-size: 50px;
-        /*-fx-text-fill:  #FFFFFF;*/
+    /*-fx-text-fill:  #FFFFFF;*/
 
-    
+
     /*-fx-fill: 20px;*/
 }
 
@@ -67,7 +67,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-color: #970000;
     -fx-focus-color:none;
     -fx-border-color: none;
-    
+
 }
 
 .column-header-background{
@@ -80,7 +80,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-color: #E6E6E6;
 }
 .filler{
-      -fx-background-color: #E6E6E6;
+    -fx-background-color: #E6E6E6;
 }
 /*.TabPane .tab-header-background{
     -fx-background-color: #B20000;
@@ -108,15 +108,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .Menu{
-/*    -fx-background-color: blue;*/
+    /*    -fx-background-color: blue;*/
     -fx-spacing : 20 ;
     -fx-padding: 20;
 
 }
 .labelMenu{
-        -fx-font-size:25px;
-        -fx-text-fill: #353535;
-        -fx-font-weight: bold;
+    -fx-font-size:25px;
+    -fx-text-fill: #353535;
+    -fx-font-weight: bold;
 }
 .itemMenu{
     -fx-alignment: CENTER;
@@ -127,14 +127,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 .itemMenu:hover{
     -fx-background-color: white;
-    
+
 }
 /*.itemMenu:hover ~ .imagPizza{
     
 }*/
 
 .imagPizza{
-     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
 }
 
 .barOrden{
@@ -157,7 +157,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .btnElim{
     -fx-background-color: #F42727;
     -fx-padding: 10 14 10 14;
-      -fx-background-radius: 7;
+    -fx-background-radius: 7;
 }
 .btnElim1{
     -fx-background-color: transparent;
@@ -178,10 +178,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-image: url("../img/elimCell.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: contain;
- 
+
 }
 .btnElim2:hover{
-        -fx-background-image: url("../img/elimCell2.png");
+    -fx-background-image: url("../img/elimCell2.png");
 }
 .btnElim1:hover{
     -fx-background-image: url("../img/elimCell2.png");
@@ -201,15 +201,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-color: red;
 }
 
-.tOrden .column-header-background{
-/*    -fx-background-color: #E6E6E6;
-    -fx-fill: transparent;
-        -fx-padding: 15;
-    -fx-spacing: 15;
-    -fx-text-fill: blue;
-        -fx-font-size:15px;
-    -fx-font: none;*/
-}
+
 .table-view{
     -fx-background-color: transparent;
     /*-fx-text-fill: white;*/
@@ -226,10 +218,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-text-fill: #1E1E1E;
     -fx-alignment: CENTER;
     -fx-column-halignment: center;
-/*    -fx-text-alignment: CENTER;*/
+    /*    -fx-text-alignment: CENTER;*/
     -fx-font-weight: bold;
     -fx-font-size:15;
-   
+
 }
 
 .cellBtn{
@@ -257,7 +249,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .tableOrd .cell-arrow{
-    
+
     -fx-background-color: transparent;
 }
 
@@ -266,8 +258,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-color: #E6E6E6;
     -fx-border-color: transparent;
     /*-fx-background-image: url("../img/barra_roow.png");*/
-/*    -fx-background-size: cover;
-    -fx-background-repeat: no-repeat;*/
+    /*    -fx-background-size: cover;
+        -fx-background-repeat: no-repeat;*/
     /*-fx-spacing: 10;*/
     -fx-border-color: none;
 }
@@ -276,9 +268,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-color:blue;
     -fx-border-color: transparent;
 }
-.tableOrd .cell:selected ~ .cell{
+/*.tableOrd .cell:selected ~ .cell{
     -fx-background-color:red;
-}
+}*/
 .tableOrd .cell {
 }
 
@@ -288,11 +280,34 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-image:url("../img/elimCell2.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover
-    /*-fx-background-fills:#E6E6E6 ;*/
+        /*-fx-background-fills:#E6E6E6 ;*/
 }
-/*.ro*/
+
 
 .cellCab .cell-arrow{
-        -fx-background-color: #E6E6E6;
+    -fx-background-color: #E6E6E6;
+
+}
+
+.ventas{
+    -fx-background-color: #E6E6E6;
+    -fx-background-radius: 10 10 10 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0);
+    -fx-padding: 10 30 10 30;
+    -fx-font-size:15px;
+    -fx-text-fill: #353535;
+    -fx-font-weight: bold;
+}
+
+.panVentas{
+    -fx-background-color: #D9D9D9;
+    -fx-background-radius: 10;
+
+}
+
+.tVenta{
     
 }
+.tVenta .table-view .column-header .label {
+        -fx-text-fill: red ;
+    }

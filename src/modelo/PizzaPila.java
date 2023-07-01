@@ -13,8 +13,8 @@ import java.util.Scanner;
  */
 public class PizzaPila {
 
-    private PizzaNodo cab;
-    private int nPizzas;
+    public PizzaNodo cab;
+    public int nPizzas;
 
     public PizzaPila() {
     }
@@ -45,6 +45,7 @@ public class PizzaPila {
 
     public void addPizza(PizzaNodo res) {
         PizzaNodo n = res;
+        System.out.println(n.getValor()+"<----- valor del nodo");
         if (this.isVacia() == true) {
             this.setCab(n);
             this.nPizzas++;
@@ -174,7 +175,7 @@ public class PizzaPila {
     public void Elimiar(String id) {
         if (this.BuscarId(id).getIdPizza().equals(this.cab.getIdPizza())) {
             this.quitarTope();
-            this.nPizzas--;
+//            this.nPizzas--;
         } else {
             this.BuscarIdAnt(id).setSig(this.BuscarId(id).getSig());
             this.nPizzas--;
@@ -192,6 +193,19 @@ public class PizzaPila {
             }
             System.out.println(aux.getInfo());
         }
+    }
+    
+    public int getTotalPrecio(){
+        int suma=0;
+        if (this.cab!=null) {
+            PizzaNodo aux= this.cab;
+            while(aux.sig!=null){
+                suma+=aux.getValor();
+                aux=aux.sig;
+            }
+            suma+=aux.getValor();
+        }
+        return suma;
     }
 
 }

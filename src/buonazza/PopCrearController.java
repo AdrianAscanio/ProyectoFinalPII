@@ -35,6 +35,8 @@ public class PopCrearController {
     public PizzaNodo Pizza;
     @FXML
     public int idPizza;
+    @FXML
+    public int precio;
 
     @FXML
     public Button btnCancel;
@@ -91,7 +93,7 @@ public class PopCrearController {
     }
 
     public void onSelectMed() {
-        this.precioTam = 12000;
+        this.precioTam = 11000;
         this.setLabelPrecio();
     }
 
@@ -165,6 +167,7 @@ public class PopCrearController {
     public int getPrecio() {
         int res = this.precioTam + this.sab1 + this.sab2 + this.sab3;
         res *= this.cant;
+//        this.precio=res;
         return res;
     }
 
@@ -186,8 +189,9 @@ public class PopCrearController {
         }else if (this.Fam.isSelected()) {
             tamano="FAMILIAR";
         }
+        System.out.println(this.getPrecio()+"   en el momento de agregar este es el precio del nodo");
         String Sabor = this.Combo1.getValue().toString() + " + " + this.Combo2.getValue().toString() + " + " + this.Combo3.getValue().toString();
-        Pizza= new PizzaNodo(String.valueOf(this.idPizza),Sabor,tamano,this.cant,"ORDEN");
+        Pizza= new PizzaNodo(String.valueOf(this.idPizza),Sabor,tamano,this.cant,"ORDEN",this.getPrecio());
         this.opc=1;
         Stage root = (Stage) this.btnOK.getScene().getWindow();
         root.close();

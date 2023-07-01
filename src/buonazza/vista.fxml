@@ -107,7 +107,8 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <TableView fx:id="tableOrden" layoutY="72.0" prefHeight="388.0" prefWidth="301.0" styleClass="tOrden" />
+                        <TableView fx:id="tableOrden" layoutY="72.0" prefHeight="351.0" prefWidth="301.0" styleClass="tOrden" />
+                        <Label fx:id="PrecioOrd" alignment="CENTER" layoutX="7.0" layoutY="438.0" prefHeight="17.0" prefWidth="286.0" styleClass="labelTitulo" stylesheets="@../estilos/tab.css" text="Costo total:  $0" textAlignment="CENTER" />
                      </children></Pane>
                </children></AnchorPane>
       </content>
@@ -118,9 +119,9 @@
                <children>
                   <Button fx:id="btnOrdenes" layoutX="194.0" layoutY="27.0" mnemonicParsing="false" onAction="#InsertTableOrdenes" styleClass="btnOrdElab" text="Lista de Ordenes" />
                   <Button fx:id="btnEjec" layoutX="538.0" layoutY="27.0" mnemonicParsing="false" onAction="#insertTableElabo" styleClass="btnOrdElab" text="En Ejecución" />
-                  <VBox layoutX="50.0" layoutY="-4.0" prefHeight="200.0" prefWidth="617.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+                  <VBox fx:id="paneTable" layoutX="50.0" layoutY="-4.0" prefHeight="200.0" prefWidth="617.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
                      <children>
-                        <TableView fx:id="tableElaboracion" prefHeight="1000.0" prefWidth="800.0" />
+                        <TableView fx:id="tableElaboracion" prefHeight="1000.0" prefWidth="800.0" stylesheets="@../estilos/tableVentas.css" />
                         <TableView fx:id="tableOrdenes" prefHeight="1000.0" prefWidth="617.0" stylesheets="@../estilos/tableVentas.css" />
                      </children>
                   </VBox>
@@ -131,7 +132,15 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="tableVentas" layoutX="358.0" layoutY="172.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../estilos/tableVentas.css" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="50.0" />
+                  <Pane layoutX="217.0" layoutY="-62.0" prefHeight="200.0" prefWidth="200.0" styleClass="panVentas" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0">
+                     <children>
+                        <TableView fx:id="tableVentas" prefHeight="413.0" prefWidth="921.0" stylesheets="@../estilos/tableVentas1.css">
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                           </padding></TableView>
+                     </children>
+                  </Pane>
+                  <Label fx:id="TotalVentas" layoutX="705.0" layoutY="478.0" prefHeight="41.0" prefWidth="255.0" styleClass="ventas" text="Total $0" />
                </children></AnchorPane>
         </content>
       </Tab>
