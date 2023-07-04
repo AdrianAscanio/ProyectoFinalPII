@@ -95,26 +95,12 @@ public class EmergenteController {
     @FXML
 
     public void initialize() {
-//        int res=getOPC();
-//        if (this.opc==0) {
-//            this.titulo.setText("no hice nada");
-//        }else if(this.opc==1){
-//            this.titulo.setText("hola");
-//        }
 
     }
 
     public void setOPC(int res) {
         this.opc = res;
     }
-//    @FXML
-//    public void initialize(int opc){
-//        if (this.opc==0) {
-//            this.titulo.setText("no hice nada");
-//        }else if(this.opc==1){
-//            this.titulo.setText("hola");
-//        }
-//    }
 
     private int getOPC() {
         return this.opc;

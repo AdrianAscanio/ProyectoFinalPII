@@ -65,6 +65,7 @@ public class PizzaPila {
             this.nPizzas++;
         } else {
             this.ultimo().sig = n;
+            this.nPizzas++;
         }
     }
 
@@ -175,12 +176,16 @@ public class PizzaPila {
     public void Elimiar(String id) {
         if (this.BuscarId(id).getIdPizza().equals(this.cab.getIdPizza())) {
             this.quitarTope();
-//            this.nPizzas--;
         } else {
-            this.BuscarIdAnt(id).setSig(this.BuscarId(id).getSig());
+            PizzaNodo ant =this.BuscarIdAnt(id);
+//            ant.setSig(null);
+            PizzaNodo actu=this.BuscarId(id);
+            ant.setSig(actu.getSig());
+            actu=null;
+//            this.BuscarIdAnt(id).setSig(this.BuscarId(id).getSig());
             this.nPizzas--;
         }
-        if(this.nPizzas==-1){this.nPizzas=0;}
+//        if(this.nPizzas==-1){this.nPizzas=0;}
     }
 
     public void Lista() {

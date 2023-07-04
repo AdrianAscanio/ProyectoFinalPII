@@ -249,7 +249,7 @@ public class VistaController {
         this.tableVentas.getColumns().addAll(col, col1, col2, col3, col4, col6, col5);
     }
 
-    public void initTableOrdenElab() {
+    public void initTableOrd() {
 //        this.tableOrdenes.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         VBox.setVgrow(tableOrdenes, Priority.ALWAYS);
         TableColumn<PizzaNodo, String> col1 = new TableColumn<>("id");
@@ -311,14 +311,14 @@ public class VistaController {
                         AddEla.setPrefSize(120, 40);
                         AddEla.setOnAction(e -> {
 
-                            p = (PizzaNodo) tableOrdenes.getSelectionModel().getSelectedItem();
-                            Elaboracion.addUltimo(p);
-                            Ordenes.Elimiar(p.getIdPizza());
+                            PizzaNodo i= (PizzaNodo) tableOrdenes.getSelectionModel().getSelectedItem();
+                            Ordenes.Elimiar(i.getIdPizza());
+                            Elaboracion.addUltimo(i);
                             System.out.println(Elaboracion.getnPizzas() + " numero de nodo en Elaboracion");
                             actualizarOrdenes();
                             actualizarElaboracion();
                             try {
-                                emerConfirm("Se agregó Correctamente a Elaboración");
+                                emerConfirm("Se agregó a Elaboración");
                             } catch (IOException ex) {
 //                                Logger.getLogger(VistaController.class.getName()).log(Level.SEVERE, null, ex);
                             }
@@ -375,12 +375,14 @@ public class VistaController {
                         AddV.getStyleClass().add("btnEla");
                         AddV.setPrefSize(120, 40);
                         AddV.setOnAction(e -> {
+                           
+                            System.out.println();
                             p = (PizzaNodo) tableElaboracion.getSelectionModel().getSelectedItem();
                             Elaboracion.Elimiar(p.getIdPizza());
                             ventas.addNodoVentasDoc(p);
                             actualizarVentas();
                             actualizarElaboracion();
-                            emerConfirm("Se agregó a Ventas");
+                            this.emerConfirm("Se agregó a Ventas");
 
                         });
 
@@ -395,7 +397,7 @@ public class VistaController {
                 }
 
                 private void emerConfirm(String se_agregó_a_Ventas) {
-                    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                   
                 }
             };
             return cell;
@@ -455,7 +457,7 @@ public class VistaController {
             FXMLLoader loader1 = new FXMLLoader(getClass().getResource("popConfirm.fxml"));
             Parent root1 = loader1.load();
             PopConfirmController control1 = loader1.getController();
-            control1.setTitle("Se Agrego Correctamente");
+            control1.setTitle("Se eliminó Correctamente");
             Scene sc1 = new Scene(root1);
             Stage st1 = new Stage();
             st1.setScene(sc1);
@@ -564,6 +566,9 @@ public class VistaController {
                         deleteCell.getStyleClass().add("btnElim2");
                         deleteCell.setOnAction(e -> {
                             try {
+//                                    HBox man =(HBox) deleteCell.getParent();
+//                                    Parent sup =man.getParent();
+//                                    sup.setVisible();
                                 p = (PizzaNodo) tableOrden.getSelectionModel().getSelectedItem();
                                 Orden.Elimiar(p.getIdPizza());
                                 actualizarOrden();
@@ -606,7 +611,7 @@ public class VistaController {
 
     public void TableOrdenes() {
         this.refresTableOrdElab();
-        this.initTableOrdenElab();
+        this.initTableOrd();
         this.actualizarOrdenes();
     }
 
@@ -650,11 +655,11 @@ public class VistaController {
         this.initTableOrden();
         this.initTableVentas();
         this.actualizarVentas();
-        this.initTableOrdenElab();
+        this.initTableOrd();
         this.initTableElabo();
         this.InsertTableOrdenes();
         this.idPizza = ventas.obtenerid() + 1;
-
+        System.out.println(idPizza+ " id inicial del sistema");
     }
 
 }

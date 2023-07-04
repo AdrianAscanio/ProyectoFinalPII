@@ -206,27 +206,23 @@ public class PizzaLista {
             this.nPizzas++;
         }
     }
+//metodos adicionales
 
     public void leerVentas() {
         this.cab = null;
-//        this.cola=null;
         this.nPizzas = 0;
-//        PizzaLista res = new PizzaLista(); // lista auxiliar para recibir datos del documento
-//        if (this.docVacio()) {
-//            System.out.println("El Documento esta vacio");
-//            return ;
-//        }
+
         File doc = new File(".\\ventas.txt");// llamada del documento,
         try {
             Scanner obj = new Scanner(doc);// leectra del documento
             while (obj.hasNextLine()) { //contador de lineas del documento
-                
+
                 String[] Nodo = obj.nextLine().split("\\s*,\\s*"); // Separa la linea del docuemnte por sus  comas, y las combierte en Arreglos de String
-                PizzaNodo n = new PizzaNodo(Nodo[0], Nodo[1], Nodo[2], Integer.valueOf(Nodo[3]), Nodo[4],Integer.valueOf(Nodo[5]));
+                PizzaNodo n = new PizzaNodo(Nodo[0], Nodo[1], Nodo[2], Integer.valueOf(Nodo[3]), Nodo[4], Integer.valueOf(Nodo[5]));
                 addFinal(n); // Asignacion de los elementos del la linea del documento y los agrega a la lista auxiliar.
             }
         } catch (Exception e) {
-            System.out.println("error al agregar datos >>> "+e );
+            System.out.println("error al agregar datos >>> " + e);
         }
 //        this.cab=res.cab;  // Retorna la lista con los elementos encontrados
     }
@@ -237,7 +233,7 @@ public class PizzaLista {
 
         try {
 
-            String data = "\n" + nodo.getIdPizza() + "," + nodo.getSabor() + "," + nodo.getTamaño() + "," + nodo.getCantidad() + "," + "HECHO"+","+nodo.getValor();
+            String data = "\n" + nodo.getIdPizza() + "," + nodo.getSabor() + "," + nodo.getTamaño() + "," + nodo.getCantidad() + "," + "HECHO" + "," + nodo.getValor();
             File file = new File(".\\ventas.txt");
             if (!file.exists()) {
                 file.createNewFile();
@@ -276,38 +272,54 @@ public class PizzaLista {
     }
 
     public int obtenerid() {
-        File archivo = new File(".\\ventas.txt");
-        String ultimaLinea = null;
-        if (this.docVacio()) {
-            return 0;
-        }
-        try ( BufferedReader br = new BufferedReader(new FileReader(archivo))) {
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                ultimaLinea = linea;
+        PizzaLista aux = new PizzaLista();
+        aux.leerVentas();
+        int res = 0;
+        PizzaNodo item = aux.getCab();
+        while (item.getSig() != null) {
+            if (res <= Integer.valueOf(item.getIdPizza())) {
+                res = Integer.valueOf(item.getIdPizza());
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+
+            item = item.getSig();
+
         }
-        String[] res = ultimaLinea.split("\\s*,\\s*");
-        try {
-            return Integer.valueOf(res[0]);
-        } catch (Exception r) {
-            System.out.println("Error en Obtener ultimo Id Ventas | "+r);
-            return -1;
-            
+        if (res <= Integer.valueOf(item.getIdPizza())) {
+            res = Integer.valueOf(item.getIdPizza());
         }
-        
+        return res;
+//        File archivo = new File(".\\ventas.txt");
+//        String ultimaLinea = null;
+//        if (this.docVacio()) {
+//            return 0;
+//        }
+//        try ( BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+//            String linea;
+//            while ((linea = br.readLine()) != null) {
+//                ultimaLinea = linea;
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        String[] res = ultimaLinea.split("\\s*,\\s*");
+//        try {
+//            return Integer.valueOf(res[0]);
+//        } catch (Exception r) {
+//            System.out.println("Error en Obtener ultimo Id Ventas | "+r);
+//            return -1;
+//            
+//        }
+
     }
-    
-    public boolean docVacio(){
+
+    public boolean docVacio() {
         File archivo = new File(".\\ventas.txt");
 
         if (archivo.length() == 0) {
             return true;
         }
 
-        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+        try ( BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea = br.readLine();
             if (linea == null || linea.trim().isEmpty()) {
                 return true;
